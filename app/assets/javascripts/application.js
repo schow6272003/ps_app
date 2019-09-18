@@ -12,7 +12,14 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
+//= require bootstrap-sprockets
 //= require react
 //= require react_ujs
+//= require react-router-dom.min.js
 //= require components
+//= require bootstrap
+//= require datatables
 //= require_tree .
+
+
