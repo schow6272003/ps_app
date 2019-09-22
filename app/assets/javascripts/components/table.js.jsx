@@ -1,48 +1,61 @@
 class Table extends React.Component {
     constructor(props) {
          super(props)
+         
          this.state  = {
               title: this.props.title,
               headers: this.props.headers,
-              records: this.props.records
+              records: [], 
+              tableId: this.props.tableId
          }
     }
-    componentDidMount() {
 
-      this.initiateTable();
+    componentDidMount() {
+        this.initiateTable();
     }
-    
-    initiateTable(tableId)  {
-      const 
-        $("#dttb").dataTable();        
+    updateTBody(records) {
+        $("#" + this.state.tableId).DataTable().destroy();
+        this.setState({records: records},() => {
+            console.log(this.state.records);
+            this.initiateTable();
+        });
+    }
+ 
+    initiateTable()  {
+       let table = $("#" + this.state.tableId ).dataTable();     
     }
     render () {
-        return (
-            <div>
-                <table id="dttb" className="table table-hover">
-                <thead>
-                <tr>
-                    {
-                        this.state.headers.map((name,i) => {
-                            return (
-                                <th key={i}>{name}</th>
-                            )
-                        }, this)
-                    }
-        
-                </tr>
-                </thead>
-                <tbody>
+        return (<div>
+                    <table id={this.state.tableId} className="table table-hover">
+                    <thead>
                     <tr>
-                     <td>1</td>
-                     <td>Joseph</td>
-                     <td>Joseph</td>
-                     <td>Joseph</td>
-                     <td>Joseph</td>
+                        {
+                        this.state.headers.map((header,i) => {
+                            return (<th key={i}>{header.name}</th>)
+                        }, this)
+                        }
                     </tr>
-                </tbody>
-            </table>
-
+                    </thead>
+                    <tbody id="table_body">
+                    {
+                        this.state.records.map((record, i) =>{
+                            return (
+                                <tr key={i}>
+                                    { 
+                                    this.state.headers.map((header,j) => {
+                                        return ( <td key={j}>
+                                        {record[header.key]}
+                                        </td> 
+                                        );  
+                                    })
+                                    }
+                                </tr>
+                            )
+                            
+                        }, this)
+                        }
+                    </tbody>
+                </table>
             </div>
         )
     }

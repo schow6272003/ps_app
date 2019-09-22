@@ -1,17 +1,23 @@
 class Search extends React.Component {
     constructor(props) {
          super(props)
+         
+         this.searchTable= React.createRef();
          this.state  = {
-              title: this.props.title
+              title: this.props.title, 
+              headers: this.props.headers
          }
     }
-
-    componentDidMount() {
-        console.log("hello");
-        console.log(this.props);
+ 
+    updateTable(records) {
+        this.searchTable.current.updateTBody(records);
     }
-
     render () {
-        return (<h1>{this.state.title}</h1>)
+        return (
+                <div>
+                <SearchPanel  updateTable={this.updateTable.bind(this)}  />
+                <Table ref={this.searchTable}  tableId="search-table" headers={this.state.headers} />
+                </div>
+              )
     }
 }

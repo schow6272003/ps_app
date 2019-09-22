@@ -10,6 +10,7 @@ gem 'bootstrap-sass'
 gem 'jquery-datatables'
 gem 'react-rails'
 gem 'react-bootstrap-rails'
+gem "selectize-rails"
 gem 'ps_pop_client',  :git => 'https://github.com/schow6272003/ps_gem.git'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
@@ -51,7 +52,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring',  '2.0.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
