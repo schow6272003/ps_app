@@ -1,7 +1,7 @@
 var AppTools = {
     formatNumber: (num) => {
      if (!num) return null;
-     return new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 20 }).format(num);
+     return new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 20 }).format(Number(num));
     },
     encodeUrl: (zipCodes, cbsaIds, name) => {
         let apiUrl = '/api/v1/find?';
@@ -26,8 +26,8 @@ var AppTools = {
                   zip_code: r.zip_code[i],
                   cbsa_id: r.cbsa_id,
                   name: r.name,
-                  "2014": Number(r.pop_estimate[4].number),
-                  "2015": Number(r.pop_estimate[5].number)
+                  "2014": this.formatNumber(r.pop_estimate[4].number),
+                  "2015": this.formatNumber(r.pop_estimate[5].number)
                  })
             }
           a =  [...a, ...sub_records];
