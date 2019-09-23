@@ -13,9 +13,12 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import "datatables";
+ @import 'bootstrap-sprockets';
+ @import 'bootstrap';
+ @import 'datatables';
  @import 'selectize';
  @import 'selectize.bootstrap3';
- @import  'cbsa';
+ @import 'cbsa';
+ @import 'loading_spinner';
+
+

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/schow6272003/ps_gem.git
-  revision: 2659df62ada3e506d7f4cef55383c0c39318ed57
+  revision: 9e14dfa44d7e52c1ca7848466bb8cee5442ad195
   specs:
     ps_pop_client (0.0.0)
       json
@@ -106,7 +106,7 @@ GEM
     method_source (0.9.2)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.11.3)
+    minitest (5.12.0)
     nio4r (2.5.1)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)

@@ -1,4 +1,8 @@
 var AppTools = {
+    handleSpinner: (option) => {
+     let spinner = document.getElementById("loadingSpan");
+     spinner.style.display =(option == "show") ?  "block" : "none";
+    },
     formatNumber: (num) => {
      if (!num) return null;
      return new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 20 }).format(Number(num));

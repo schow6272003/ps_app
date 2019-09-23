@@ -12,12 +12,15 @@ class SearchPanel extends React.Component {
      let msaName = document.getElementById("msa-field").value;
 
      if (zipCodes.length  >  0 || cbsaIds.length > 0  || msaName) {
+        AppTools.handleSpinner("show");
         this.handleEmptyFieldsAlfert("hide");
         this.callApi(zipCodes, cbsaIds, msaName)
           .then((response) => {
-             this.props.updateTable(response);
+            this.props.updateTable(response);
+            AppTools.handleSpinner("hide");
           }).catch((err) => {
-              console.log(err)
+            AppTools.handleSpinner("hide");s
+            console.log(err)
         })
      }  else {
         this.handleEmptyFieldsAlfert("show");
