@@ -9,35 +9,33 @@ class Table extends React.Component {
               tableId: this.props.tableId
          }
     }
-
     componentDidMount() {
         this.initiateTable();
     }
     updateTBody(records) {
         $("#" + this.state.tableId).DataTable().destroy();
         this.setState({records: records},() => {
-            console.log(this.state.records);
             this.initiateTable();
         });
     }
  
     initiateTable()  {
-       let table = $("#" + this.state.tableId ).dataTable();     
+        $("#" + this.state.tableId ).dataTable();     
     }
     render () {
         return (<div>
-                    <table id={this.state.tableId} className="table table-hover">
+                  <table id={this.state.tableId} className="table table-hover">
                     <thead>
-                    <tr>
-                        {
-                        this.state.headers.map((header,i) => {
+                     <tr>
+                      {
+                          this.state.headers.map((header,i) => {
                             return (<th key={i}>{header.name}</th>)
-                        }, this)
-                        }
-                    </tr>
+                          }, this)
+                      }
+                     </tr>
                     </thead>
                     <tbody id="table_body">
-                    {
+                     {
                         this.state.records.map((record, i) =>{
                             return (
                                 <tr key={i}>
@@ -53,7 +51,7 @@ class Table extends React.Component {
                             )
                             
                         }, this)
-                        }
+                      }
                     </tbody>
                 </table>
             </div>

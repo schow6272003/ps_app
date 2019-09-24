@@ -6,8 +6,7 @@ module Api
         require 'json'
         
         def find
-          url = { :base_uri => "http://localhost:8000" }
-          render json: PSClient::Api.new(url).find(request_params)
+          render json: PSClient::Api.new.find(request_params)
         end
 
         private

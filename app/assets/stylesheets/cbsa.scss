@@ -28,11 +28,14 @@
      flex-direction: row;
      justify-content: center;
      align-items: center;
+     width: 80%; 
+ }
 
+ .button_container {
+     margin: 11px 20px;
  }
 
  #emtpy-field-alert, .alert-star {
      color: red;
      font-weight: bold;
-     display: none;
  }

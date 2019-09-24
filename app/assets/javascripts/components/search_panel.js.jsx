@@ -31,10 +31,11 @@ class SearchPanel extends React.Component {
         this.initiateSelectize();
      }
     handleReset()  {
-      document.getElementById("msa-field").value = null;
-      this.handleEmptyFieldsAlfert("hide");
-      this.state.selectizeZipCode.clear();
-      this.state.selectizeCBSA.clear();
+        document.getElementById("msa-field").value = null;
+        this.handleEmptyFieldsAlfert("hide");
+        this.state.selectizeZipCode.clear();
+        this.state.selectizeCBSA.clear();
+        this.props.updateTable([]);
     }
     handleEmptyFieldsAlfert(option) {
        if(option =="show") {
@@ -48,7 +49,6 @@ class SearchPanel extends React.Component {
     callApi(zipCodes, cbsaIds, msaName) {
         let promise = new Promise((resolve, reject)=>{
           const url = AppTools.encodeUrl(zipCodes, cbsaIds, msaName);
-          const Instance = this;
             fetch(url)
             .then( (response) => {
                 return response.json();
@@ -90,33 +90,33 @@ class SearchPanel extends React.Component {
                 <div className="row">
                   <div className="col-md-12">
                     <form>
-                    <div className="form-row">
+                     <div className="form-row">
                         <div className="col-md-3 mb-3">
-                            <label>Zip Code<span className="alert-star" >*</span></label>
-                            <input id="zip-code-field" type="text" className="form-control" placeholder="Zip Code"></input> 
+                          <label>Zip Code<span className="alert-star" >*</span></label>
+                          <input id="zip-code-field" type="text" className="form-control" placeholder="Zip Code"></input> 
                         </div>
                         <div className="col-md-3 mb-3">
-                            <label>CBSA<span className="alert-star" >*</span></label>
-                            <input id="cbsa-id-field" type="text" className="form-control" placeholder="CBSA Code"></input> 
+                          <label>CBSA Code<span className="alert-star" >*</span></label>
+                          <input id="cbsa-id-field" type="text" className="form-control" placeholder="CBSA Code"></input> 
                         </div>
                         <div className="col-md-3 mb-3">
-                            <label>MSA Name<span className="alert-star" >*</span></label>
-                            <input id="msa-field" type="text" className="form-control" placeholder="MSA Name"></input> 
+                          <label>MSA Name<span className="alert-star" >*</span></label>
+                          <input id="msa-field" type="text" className="form-control" placeholder="MSA Name"></input> 
                         </div>
                         <div className="col-md-3 mb-3">
-                            <div>
-                            <button type="button" className="btn btn-primary" onClick={this.handleSearch.bind(this, null)}>Search</button>
-                            <button type="button" className="btn btn-danger" onClick={this.handleReset.bind(this, null)}>Reset</button>
-                            </div>
+                         <div className="flex_container">
+                           <button type="button" className="btn btn-primary button_container" onClick={this.handleSearch.bind(this, null)}>Search</button>
+                           <button type="button" className="btn btn-danger button_container" onClick={this.handleReset.bind(this, null)}>Reset</button>
+                        </div>
                         </div>
                     </div>
-                </form>
-                  </div>
+                  </form>
+                 </div>
                 </div>
                 <div className="row">
-                 <div className="col-md-12">
+                 <div className="col-md-9">
                     <div className="flex_container">
-                        <span id="emtpy-field-alert">Fields Can Not Be All Empty!!</span>
+                      <span id="emtpy-field-alert">Fields Can Not Be All Empty!!</span>
                     </div>
                   </div>
                 </div>
