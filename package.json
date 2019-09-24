@@ -1,0 +1,7 @@
+{
+    "name": "ps_app",
+    "private": true,
+    "dependencies": {},
+    "scripts": { "start": "app.js" }
+  }
+  
