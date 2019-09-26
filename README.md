@@ -1,25 +1,19 @@
-# README
+## PeerStreet API Demo Site
+This web app is intended to showcase practical application of CBSA population estimate api. User can search through CBSA database by zip code, CBSA code, or keyword on MSA name.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Other Repositories:
+  - [PeerStreet Challenge](https://github.com/schow6272003/peer_street_challenge)
+  - [API Node Server](https://github.com/schow6272003/ps_api)
+  - [Ruby Client Gem](https://github.com/schow6272003/ps_gem.git)
 
-Things you may want to cover:
+## Stack
+ - ReactJs
+ - Rails 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# ps_app
+## Installation
+```
+git clone https://github.com/schow6272003/ps_app
+cd ps_app
+bundle install
+rails s
+```

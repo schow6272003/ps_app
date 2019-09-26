@@ -13,6 +13,6 @@ class Main extends React.Component {
                 <Search title={"Text Search"} headers={this.state.headers} />
               </main>
              </div>
-           )
+           );
   }
 }
